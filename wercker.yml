@@ -1,4 +1,4 @@
-box: inwy/ubuntu12.04-ruby2.1.2@0.1.0
+box: inwy/ubuntu12.04-ruby2.1.0@0.1.0
 services:
   - wercker/postgresql
 build:
@@ -14,7 +14,7 @@ build:
           echo -p "gem list: $(gem list)"
     - script:
         name: Set up db
-        code: RAILS_ENV=test bundle exec rake db:schema:load
+        code: RAILS_ENV=production bundle exec rake db:schema:load
     - script:
         name: Run RSpec
         code: bundle exec rspec
